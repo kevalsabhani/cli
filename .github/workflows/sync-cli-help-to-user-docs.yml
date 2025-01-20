@@ -16,8 +16,8 @@ jobs:
           gh auth setup-git
           git config --global user.email "noreply@snyk.io"
           git config --global user.name "$GITHUB_ACTOR"
-          gh repo clone snyk/snyk cli -- --depth=1 --quiet
-          gh repo clone snyk/user-docs docs -- --depth=1 --quiet
+          gh repo clone kevalsabhani/snyk cli -- --depth=1 --quiet
+          gh repo clone kevalsabhani/user-docs docs -- --depth=1 --quiet
           git -C ./cli checkout -b docs/automatic-gitbook-update
 
           cp ./docs/docs/snyk-cli/commands/*.md ./cli/help/cli-commands/
@@ -29,7 +29,7 @@ jobs:
             npx prettier --write ./help/cli-commands/*.md
             git --no-pager diff --name-only
             git add .
-            git commit -m "docs: synchronizing help from snyk/user-docs"
+            git commit -m "docs: synchronizing help from kevalsabhani/user-docs"
             git push --force --set-upstream origin docs/automatic-gitbook-update
             if [[ ! $(gh pr view docs/automatic-gitbook-update 2>&1 | grep -q "no open pull requests";) ]]; then
               echo "Creating PR"
@@ -40,4 +40,4 @@ jobs:
             echo "No documentation changes detected, exiting."
           fi
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: "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"
