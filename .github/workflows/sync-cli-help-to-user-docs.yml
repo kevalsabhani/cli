@@ -16,7 +16,7 @@ jobs:
           gh auth setup-git
           git config --global user.email "noreply@snyk.io"
           git config --global user.name "$GITHUB_ACTOR"
-          gh repo clone kevalsabhani/snyk cli -- --depth=1 --quiet
+          gh repo clone kevalsabhani/cli cli -- --depth=1 --quiet
           gh repo clone kevalsabhani/user-docs docs -- --depth=1 --quiet
           git -C ./cli checkout -b docs/automatic-gitbook-update
 
