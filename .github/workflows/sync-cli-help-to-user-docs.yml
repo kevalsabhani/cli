@@ -40,4 +40,4 @@ jobs:
             echo "No documentation changes detected, exiting."
           fi
         env:
-          GITHUB_TOKEN: "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"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
