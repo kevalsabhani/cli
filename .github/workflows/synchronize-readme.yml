@@ -17,7 +17,7 @@ jobs:
           git config --global user.name "$GITHUB_ACTOR"
 
           # Clone the CLI repository
-          gh repo clone snyk/cli cli -- --depth=1 --quiet
+          gh repo clone kevalsabhani/cli cli -- --depth=1 --quiet
           git -C ./cli checkout -B $DESTINATION_BRANCH
 
           # Retrieve the GitBook content
