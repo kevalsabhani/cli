@@ -21,11 +21,11 @@ jobs:
           git -C ./cli checkout -B $DESTINATION_BRANCH
 
           # Retrieve the GitBook content
-          wget https://raw.githubusercontent.com/snyk/user-docs/main/docs/snyk-cli/getting-started-with-the-snyk-cli.md -O current_gitbook.md
+          wget https://raw.githubusercontent.com/kevalsabhani/user-docs/main/docs/snyk-cli/getting-started-with-the-snyk-cli.md -O current_gitbook.md
 
           # Find relative paths to GitBooks assets (such as images) and replace with absolute paths
           sed -i \
-              -e "s|../.gitbook/assets/|https://github.com/snyk/user-docs/raw/HEAD/docs/.gitbook/assets/|g" \
+              -e "s|../.gitbook/assets/|https://github.com/kevalsabhani/user-docs/raw/HEAD/docs/.gitbook/assets/|g" \
               current_gitbook.md
 
           # Replace the README.md content with the GitBook content
